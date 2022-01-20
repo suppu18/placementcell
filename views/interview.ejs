@@ -1,0 +1,58 @@
+<!-- form to create interview -->
+<form action="/interview/create" method="post">
+  <div class="row g-3">
+    <div class="col-sm-7">
+      <input
+        type="text"
+        name="company"
+        class="form-control"
+        placeholder="Company Name"
+        aria-label="Company Name"
+      />
+    </div>
+    <div class="col-sm">
+      <input
+        type="date"
+        name="date"
+        class="form-control"
+        placeholder="Interview Date"
+        aria-label="Interview Date"
+      />
+    </div>
+  </div>
+  <button type="submit">Submit</button>
+</form>
+<h1>List of Company</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Company Name</th>
+      <th scope="col">Date of Interview</th>
+      <th scope="col">Allocate Students</th>
+    </tr>
+  </thead>
+  <%for(interview of interviews){%>
+  <tbody>
+    <tr>
+      <th scope="row"><%=interview.company%></th>
+      <td><%=interview.date%></td>
+      <td>
+        <div class="dropdown">
+          <button class="dropbtn">Allocate Students</button>
+          <div class="dropdown-content">
+            <%for(student of students){%>
+            <a
+              href="/interview/allocate/?s=<%=student._id%>&i=<%=interview._id%>"
+              ><%=student.name%></a
+            >
+            <%}%>
+          </div>
+        </div>
+      </td>
+      <td>
+        <a href="/interview/allocatedStudents/?i=<%=interview._id%>">Details</a>
+      </td>
+    </tr>
+  </tbody>
+  <%}%>
+</table>

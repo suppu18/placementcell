@@ -1,0 +1,58 @@
+<form action="/student/create" method="post">
+    <div class="row g-3">
+        <div class="col-sm-7">
+          <input type="text" name="name" class="form-control" placeholder="Name" aria-label="Name">
+        </div>
+        <div class="col-sm">
+          <input type="email" name="email" class="form-control" placeholder="Email" aria-label="Email">
+        </div>
+        <div class="col-sm">
+          <input type="text" name="college" class="form-control" placeholder="College" aria-label="College">
+        </div>
+      </div>
+      <div class="row g-3">
+        <div class="col-sm-7">
+          <input type="number" name="DSAFinal_score" class="form-control" placeholder="DSA Final Score" aria-label="DSA Final Score">
+        </div>
+        <div class="col-sm">
+          <input type="number" name="WebDFinal_score" class="form-control" placeholder="WebD Final Score" aria-label="WebD Final Score">
+        </div>
+        <div class="col-sm">
+          <input type="number" name="ReactFinal_score" class="form-control" placeholder="React Final Score" aria-label="React Final Score">
+        </div>
+        <div class="col-sm">
+          <input type="text" name="Batch" class="form-control" placeholder="Batch" aria-label="Batch">
+        </div>
+      </div>
+      <button type="submit">Submit</button>
+</form>
+<!-- <%if(student){%> -->
+    <h1>List of Students</h1>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Batch</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">College</th>
+            <th scope="col">DSA Marks</th>
+            <th scope="col">WebD Marks</th>
+            <th scope="col">React Marks</th>
+          </tr>
+        </thead>
+        <%for(student of student){%>
+        <tbody>
+            <tr>
+              <th scope="row"><%=student.Batch%></th>
+              <td><%=student.name%></td>
+              <td><%=student.email%></td>
+              <td><%=student.college%></td>
+              <td><%=student.DSAFinal_score%></td>
+              <td><%=student.WebDFinal_score%></td>
+              <td><%=student.ReactFinal_score%></td>
+            </tr>
+        </tbody>
+        <%}%>
+    </table>    
+<!-- <%}%> -->
+
